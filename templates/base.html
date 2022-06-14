@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>Weather App</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css"> 
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: rgb(255, 255, 255);
+  line-height: 1.8;
+  background-color: #f8f9fc;
+}
+
+.background{
+    background-image: url("/static/images/weather_img/landscapes\ nature\ grand\ canyon\ 1920x1080\ wallpaper_www.wallpapername.com_64.jpg");
+    height: 100%; 
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background2{
+    background-image: url("/static/images/weather_img/Beautiful-Background-Hd-1920x1080-Night-.jpg");
+    height: 100%; 
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background3{
+    background-image: url("/static/images/weather_img/425103.jpg");
+    height: 100%; 
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background4{
+    background-image: url("/static/images/weather_img/rain2.webp");
+    height: 100%; 
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background5{
+    background-image: url("/static/images/weather_img/winter.jpg");
+    height: 100%; 
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background6{
+    background-image: url("/static/images/weather_img/ice.webp");
+    height: 100%; 
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.blurbg{
+  position: absolute;
+  height: 30%;
+  left: 0px;
+  bottom:0;
+  width:100%;
+  background: rgba(17, 17, 17, 0.2);
+  backdrop-filter: blur( 15px );
+  -webkit-backdrop-filter: blur( 15px );
+}
+.blurbg .temp{
+  position: absolute;
+  left: 35px;
+  top: 35%;
+  -ms-transform: translateY(-40%);
+  transform: translateY(-40%);
+  font-size: 65px;
+  color: aliceblue;
+}
+
+.maxmin{
+  height: 90px;
+  position: absolute;
+  left: 350px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: aliceblue;
+}
+.maxmin2{
+  height: 90px;
+  position: absolute;
+  left: 550px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: aliceblue;
+}
+.maxmin .max{
+  padding-bottom: 25px;
+}
+.maxmin2 .max{
+  padding-bottom: 25px;
+}
+
+.quick{
+  height: 150px;
+  width: 40%;
+  position: absolute;
+  left: 800px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.quick h6{
+  margin: 0;
+  font-size: 22px;
+  text-align: center;
+  padding-top: -10px;
+}
+.quick .seta{
+  text-align: center;
+  padding: 5px 10px 2px 10px;
+}
+
+.quick .seta a{
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;
+  width: 260px;
+  padding: 5px 0 5px 0;
+  color: aliceblue;
+  border-radius: 5px;
+}
+.quick .seta a:hover{
+  background-color: rgba(249, 252, 255, 0.208);
+  backdrop-filter: blur( 15px );
+  -webkit-backdrop-filter: blur( 15px );
+}
+
+.blurbg .descp{
+  position: absolute;
+  left: 35px;
+  top: 63%;
+  font-size: clamp(18px, 6vw, 18px);
+  color: aliceblue;
+  padding: 0px 20px 0px 20px;
+  border-radius: 50px;
+  background: rgba(249, 252, 255, 0.208);
+  backdrop-filter: blur( 15px );
+  -webkit-backdrop-filter: blur( 15px );
+}
+
+.title{
+  position: absolute;
+  left: 35px;
+  top: 10px;
+  font-size: clamp(18px, 4vw, 24px);
+  color: aliceblue;
+}
+
+.date{
+  position: absolute;
+  left: 35px;
+  top: 50px;
+  font-size: clamp(50px, 4vw, 50px);
+  color: aliceblue;
+}
+
+form.example input[type=text] {
+  position: absolute;
+  top:10PX;
+  right: 50px;
+  padding: 10px;
+  font-size: 17px;
+  border: none;
+  width: 250px;
+  background: none;
+  color: rgb(255, 255, 255);
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(255, 255, 255, 0.776);
+}
+form.example button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  padding: 10px;
+  background: none;
+  color: white;
+  font-size: 17px;
+  border:none;
+  border-left: none;
+  cursor: pointer;
+  
+}
+form.example input:focus {
+  outline: none;
+}
+form.example button:hover {
+  border-radius: 50%;
+  backdrop-filter: blur( 10px );
+  -webkit-backdrop-filter: blur( 10px );
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+{% block content %}
+{% endblock content %}
+
+</body>
+</html>
+
+
+
+

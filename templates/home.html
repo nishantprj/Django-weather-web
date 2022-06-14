@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+
+
+<body>
+{% block content %}
+
+
+{% if main == 'Haze' %}
+  <div class="background2"></div>
+{% elif main == 'Clouds' %}
+  <div class="background3"></div>
+{% elif main == 'Rain' %}
+  <div class="background4"></div>
+{% elif main == 'Cold' %}
+  <div class="background5"></div>
+{% elif main == 'Snow' %}
+  <div class="background5"></div>
+{% else %}
+  <div class="background"></div>
+{% endif %}
+
+<form class="example" method="post" style="margin:auto;max-width:300px">
+{% csrf_token %}
+  <input type="text" placeholder="Search.. Delhi(Default)" name="city">
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
+<div class="title">
+  <i class="fa fa-map-marker"> </i> {{city}}, {{country_code}}
+</div>
+<div class="date">{{date}}</div>
+<div class="blurbg">
+  <div class="temp">{{temp}}  <img src="http://api.openweathermap.org/img/w/{{icon}}.png" alt="icon" style="width:40px; padding-bottom: 60px;"></div>
+  <div class="descp">{{humidity}} Km/h · {{description}} </div>
+  <div class="maxmin">
+    <div class="max">Max : {{max}}</div>
+    <div class="min">Min : {{min}}</div>
+  </div>
+
+  <div class="maxmin2">
+    <div class="max">Pressure : {{pressure}}hpa</div>
+    <div class="min">Visibility: {{visibility}}</div>
+  </div>
+  <div class="quick">
+    <h6>Quick Access</h6>
+    <div class="seta">
+      <a href="#">Delhi, India</a>
+      <a href="#">Bangalore, India</a>
+    </div>
+    <div class="seta">
+      <a href="#">Tokyo, Japan</a>
+      <a href="#">Berlin, Germany</a>
+    </div>
+    
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+</body>
+
+
